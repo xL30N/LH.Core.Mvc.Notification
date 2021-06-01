@@ -2,6 +2,18 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <PackageId>LH.Core.Mvc.Notification</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Leon Hancock</Authors>
+    <Company>Leon Hancock</Company>
+    <Product>LH.Core.Mvc.Notification</Product>
+    <Description>ASP.NET MVC Package for notifications</Description>
+    <Copyright>Leon Hancock</Copyright>
+    <RepositoryUrl>https://github.com/xL30N/LH.Core.Mvc.Notification</RepositoryUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
 
 </Project>
