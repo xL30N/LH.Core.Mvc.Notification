@@ -12,38 +12,38 @@ namespace LH.Core.Mvc.Notification
 
         protected ITempDataDictionary TempData => ViewContext.TempData;
 
+        protected const string CloseButton = "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">" +
+                "<span aria-hidden=\"true\">&times;</span></button>";
+
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             string[] messageTypes = Enum.GetNames(typeof(MessageType));
 
             string messages = string.Empty;
 
-            string closeButton = "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">" +
-                "<span aria-hidden=\"true\">&times;</span></button>";
-
             foreach (string type in messageTypes)
             {
                 string message = TempData.ContainsKey(type) ? TempData[type].ToString() : null;
 
-                string style = "alert-info";
-                switch (type)
-                {
-                    case "Success":
-                        style = "alert-success";
-                        break;
-                    case "Error":
-                        style = "alert-danger";
-                        break;
-                    case "Warning":
-                        style = "alert-warning";
-                        break;
-                }
-
                 if (!string.IsNullOrEmpty(message))
                 {
-                    string messageBox = "<div class=\"alert " + style + "\" role=\"alert\">" + message + closeButton + "</div>";
+                    string style = "alert-info";
+                    switch (type)
+                    {
+                        case "Success":
+                            style = "alert-success";
+                            break;
+                        case "Error":
+                            style = "alert-danger";
+                            break;
+                        case "Warning":
+                            style = "alert-warning";
+                            break;
+                    }
 
-                    messages += messageBox.ToString();
+                    string messageBox = "<div class=\"alert " + style + "\" role=\"alert\">" + message + CloseButton + "</div>";
+
+                    messages += messageBox;
                 }
             }
 
