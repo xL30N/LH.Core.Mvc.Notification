@@ -40,7 +40,7 @@ namespace LH.Core.Mvc.Notification
                             break;
                     }
 
-                    string messageBox = "<div class=\"alert " + style + " alert-dismissible fade\" role=\"alert\">" + message + CloseButton + "</div>";
+                    string messageBox = "<div class=\"alert " + style + " alert-dismissible fade show\" role=\"alert\">" + message + CloseButton + "</div>";
 
                     messages += messageBox;
                 }
