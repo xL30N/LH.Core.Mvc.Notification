@@ -12,8 +12,7 @@ namespace LH.Core.Mvc.Notification
 
         protected ITempDataDictionary TempData => ViewContext.TempData;
 
-        protected const string CloseButton = "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">" +
-                "<span aria-hidden=\"true\">&times;</span></button>";
+        protected const string CloseButton = "<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>";
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
@@ -41,7 +40,7 @@ namespace LH.Core.Mvc.Notification
                             break;
                     }
 
-                    string messageBox = "<div class=\"alert " + style + "\" role=\"alert\">" + message + CloseButton + "</div>";
+                    string messageBox = "<div class=\"alert " + style + " alert-dismissible fade\" role=\"alert\">" + message + CloseButton + "</div>";
 
                     messages += messageBox;
                 }
